@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".MainActivity">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:title="@string/usb_device_activity_title" />
+
+  <TextView
+    android:id="@+id/device_id_label"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="@string/device_id_label"
+    style="@style/DeviceInfoStyle.Label"
+    app:layout_constraintEnd_toStartOf="@+id/device_info_guideline"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+  <TextView
+    android:id="@+id/device_id"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:layout_constraintBaseline_toBaselineOf="@id/device_id_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/device_info_guideline"
+    tools:text="1234" />
+
+  <TextView
+    android:id="@+id/device_name_label"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="@string/device_name_label"
+    style="@style/DeviceInfoStyle.Label"
+    app:layout_constraintEnd_toStartOf="@+id/device_info_guideline"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/device_id_label" />
+
+  <TextView
+    android:id="@+id/device_name"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:layout_constraintBaseline_toBaselineOf="@id/device_name_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/device_info_guideline"
+    tools:text="/dev/bus/usb/01" />
+
+  <TextView
+    android:id="@+id/device_vendor_id_label"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="@string/device_vendor_id_label"
+    style="@style/DeviceInfoStyle.Label"
+    app:layout_constraintEnd_toStartOf="@+id/device_info_guideline"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/device_name_label" />
+
+  <TextView
+    android:id="@+id/device_vendor_id"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:layout_constraintBaseline_toBaselineOf="@id/device_vendor_id_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/device_info_guideline"
+    tools:text="9601" />
+
+  <TextView
+    android:id="@+id/device_product_id_label"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:text="@string/device_product_id_label"
+    style="@style/DeviceInfoStyle.Label"
+    app:layout_constraintEnd_toStartOf="@+id/device_info_guideline"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/device_vendor_id_label" />
+
+  <TextView
+    android:id="@+id/device_product_id"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:layout_constraintBaseline_toBaselineOf="@id/device_product_id_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/device_info_guideline"
+    tools:text="123456" />
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/device_info_guideline"
+    android:layout_width="1dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

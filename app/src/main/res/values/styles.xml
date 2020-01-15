@@ -1,11 +1,44 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-  <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
     <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
+    <item name="toolbarStyle">@style/ToolBarStyle</item>
+  </style>
+
+  <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
+    <item name="android:background">@color/colorPrimary</item>
+    <item name="titleTextAppearance">@style/ToolbarStyle.TitleTextAppearance</item>
+    <item name="subtitleTextAppearance">@style/ToolbarStyle.SubTitleTextAppearance</item>
+  </style>
+  <style name="ToolbarStyle.TitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <item name="android:textColor">@android:color/white</item>
+  </style>
+  <style name="ToolbarStyle.SubTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+    <item name="android:textColor">@android:color/darker_gray</item>
+  </style>
+
+  <style name="DeviceStyle">
+    <item name="android:textColor">#000000</item>
+    <item name="android:textSize">17sp</item>
+  </style>
+
+  <style name="DeviceStyle.TypeLabel">
+    <item name="android:gravity">center</item>
+  </style>
+  <style name="DeviceStyle.NameLabel">
+    <item name="android:gravity">left|center</item>
+  </style>
+
+  <style name="DeviceInfoStyle">
+
+  </style>
+
+  <style name="DeviceInfoStyle.Label">
+    <item name="android:textStyle">bold</item>
+    <item name="android:gravity">right</item>
   </style>
 
 </resources>

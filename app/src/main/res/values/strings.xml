@@ -1,3 +1,10 @@
 <resources>
   <string name="app_name">UsbBtDemo</string>
+  <string name="main_activity_title">Connected Devices</string>
+  <string name="no_devices_text">No connected devices</string>
+  <string name="usb_device_activity_title">USB Device</string>
+  <string name="device_id_label">Device ID: </string>
+  <string name="device_name_label">Device Name: </string>
+  <string name="device_vendor_id_label">Vendor ID: </string>
+  <string name="device_product_id_label">Product ID: </string>
 </resources>
