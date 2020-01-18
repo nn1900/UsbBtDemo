@@ -1,6 +1,10 @@
 package com.example.usbbtdemo;
 
+import android.app.PendingIntent;
+import android.companion.DeviceFilter;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.os.Build;
@@ -10,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.usbbtdemo.model.Device;
+import com.example.usbbtdemo.model.DevicePermission;
 
 import java.util.HashMap;
 
@@ -21,6 +26,7 @@ public class UsbDeviceActivity extends AppCompatActivity {
   private String deviceName;
   private Device deviceInfo;
   private UsbDevice usbDevice;
+  private UsbBroadcastReceiver broadcastReceiver;
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +61,25 @@ public class UsbDeviceActivity extends AppCompatActivity {
     assert null != usbManager;
     boolean hasPermission = usbManager.hasPermission(this.usbDevice);
     Toast.makeText(this, hasPermission ? "Has Permission" : "No permission", Toast.LENGTH_LONG).show();
+
+    // register usb device broadcast event
+    broadcastReceiver = new UsbBroadcastReceiver();
+    IntentFilter filter = new IntentFilter(DevicePermission.Usb);
+    filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+    registerReceiver(broadcastReceiver, filter);
+
+    if (!hasPermission) {
+      PendingIntent permissionIntent = PendingIntent.getBroadcast(
+        this, 0, new Intent(DevicePermission.Usb), 0
+      );
+      usbManager.requestPermission(this.usbDevice, permissionIntent);
+    }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    unregisterReceiver(broadcastReceiver);
   }
 
   private Device getUsbDeviceInfo(UsbDevice device) {

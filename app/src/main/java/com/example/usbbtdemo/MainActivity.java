@@ -93,9 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
   private Device getUsbDeviceInfo(UsbDevice device) {
     String version = "";
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      version = device.getVersion();
-    }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) version = device.getVersion();
     String deviceName = device.getDeviceName();
     return new Device(
       device.getDeviceId(),
